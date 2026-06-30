@@ -163,16 +163,15 @@ Message: ${data.message || "-"}`;
                 </div>
                 <div>
                   <label className="text-sm font-medium text-ink/70">Monthly budget</label>
-                  <select
+                 <select
                     {...register("budget")}
                     className="mt-1.5 w-full rounded-xl border border-primary/15 bg-section px-4 py-3 text-sm outline-none focus:border-secondary"
                     defaultValue=""
                   >
                     <option value="" disabled>Select range</option>
-                    <option value="under-50k">Under ₹50,000</option>
-                    <option value="50k-1l">₹50,000 – ₹1,00,000</option>
-                    <option value="1l-3l">₹1,00,000 – ₹3,00,000</option>
-                    <option value="3l-plus">₹3,00,000+</option>
+                    <option value="10k-15k">₹10,000 – ₹15,000</option>
+                    <option value="15k-20k">₹15,000 – ₹20,000</option>
+                    <option value="25k-plus">₹25,000+</option>
                   </select>
                   {errors.budget && <p className="mt-1 text-xs text-cta">{errors.budget.message}</p>}
                 </div>
