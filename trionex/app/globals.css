@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface text-ink font-body antialiased;
+    font-feature-settings: "ss01" on, "ss02" on;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading;
+    letter-spacing: -0.02em;
+  }
+  :root {
+    --border: 15 23 42 / 0.08;
+  }
+}
+
+@layer utilities {
+  .border-border {
+    border-color: rgb(15 23 42 / 0.08);
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #0f172a 0%, #1e40af 45%, #00c2ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+  }
+
+  .gradient-text-animated {
+    background: linear-gradient(90deg, #1e40af, #00c2ff, #1e40af);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .noise-bg {
+    position: relative;
+  }
+  .noise-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .magnetic-btn {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+
+  ::selection {
+    background: #00c2ff;
+    color: #0f172a;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
