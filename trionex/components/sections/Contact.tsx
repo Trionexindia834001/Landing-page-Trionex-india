@@ -32,8 +32,19 @@ export default function Contact() {
 
   const onSubmit = async (data: FormData) => {
     trackEvent("Lead", { content_name: "contact_form" });
-    await new Promise((r) => setTimeout(r, 800));
-    console.log("Lead submitted:", data);
+
+    const text = `New consultation request:
+Name: ${data.name}
+Phone: ${data.phone}
+Email: ${data.email}
+Business: ${data.business}
+Business type: ${data.businessType}
+Monthly budget: ${data.budget}
+Message: ${data.message || "-"}`;
+
+    const url = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+
     setSubmitted(true);
     reset();
   };
