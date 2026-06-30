@@ -171,7 +171,7 @@ Message: ${data.message || "-"}`;
                     <option value="" disabled>Select range</option>
                     <option value="10k-15k">₹10,000 – ₹15,000</option>
                     <option value="15k-20k">₹15,000 – ₹20,000</option>
-                    <option value="25k-plus">₹25,000+</option>
+                    <option value="20k-25k">₹20,000-₹25,000</option>
                   </select>
                   {errors.budget && <p className="mt-1 text-xs text-cta">{errors.budget.message}</p>}
                 </div>
